@@ -3,18 +3,20 @@ local H = {}
 
 local ns_mattern = vim.api.nvim_create_namespace("mattern")
 
-Mattern.setup = function(config)
-    _G.Mattern = Mattern
-    config = H.setup_config(config)
-end
 
-Mattern.config = {
+local defaults = {
     markers = {
         -- Out Custom Marker Definitions
         --  | Pattern      | Text to Write  | Color        | Optional Filetype |
         { 'acs:', 'Matched ACS', "@comment.error", "lua" },
     }
 }
+
+Mattern.setup = function(config)
+    -- _G.Mattern = Mattern
+    -- config = H.setup_config(config)
+    Mattern.config = vim.tbl_deep_extend('force', {}, defaults, config or {})
+end
 
 H.default_config = vim.deepcopy(Mattern.config)
 
