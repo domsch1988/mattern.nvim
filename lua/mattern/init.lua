@@ -3,12 +3,13 @@ local H = {}
 
 local ns_mattern = vim.api.nvim_create_namespace("mattern")
 
-
 local defaults = {
+    position = "eol",
+    hl_mode = "blend",
     markers = {
         -- Out Custom Marker Definitions
-        --  | Pattern      | Text to Write  | Color        | Optional Filetype |
-        { 'acs:', 'Matched ACS', "@comment.error", "lua" },
+        --  | Pattern      | Text to Write   | HL Group        | Optional Filetype |
+        { 'mattern', 'A default for Testing', "@comment.error", "lua" },
     }
 }
 
@@ -40,8 +41,8 @@ function Mattern.mattern_print()
                         {
                             id = index,
                             virt_text = { { pattern[2], pattern[3] } },
-                            virt_text_pos = "eol",
-                            hl_mode = "blend"
+                            virt_text_pos = Mattern.config.position,
+                            hl_mode = Mattern.config.hl_mode
                         })
                 end
             end
