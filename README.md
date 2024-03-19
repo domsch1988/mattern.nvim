@@ -2,6 +2,8 @@
 
 Custom Line Marks based on Pattern matching
 
+![Screenshot](https://github.com/domsch1988/mattern.nvim/assets/1961154/c46ec6d9-3605-43b5-a4c2-021e5f5b3f31)
+
 ## 📦 Installation
 
 Install the plugin with your preferred package manager:
