@@ -34,16 +34,18 @@ function Mattern.mattern_print()
     -- if vim.bo.filetype == "yaml" then
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
     for index, line in ipairs(lines) do
-        for _, pattern in ipairs(Mattern.config.markers) do
-            if (pattern[4] == nil) or (vim.bo.filetype == pattern[4]) then
-                if string.find(line, pattern[1]) then
-                    vim.api.nvim_buf_set_extmark(0, ns_mattern, index - 1, 0,
-                        {
-                            id = index,
-                            virt_text = { { pattern[2], pattern[3] } },
-                            virt_text_pos = Mattern.config.position,
-                            hl_mode = Mattern.config.hl_mode
-                        })
+        for _, patterns in ipairs(Mattern.config.markers) do
+            for pattern in ipairs(patterns) do
+                if (pattern[4] == nil) or (vim.bo.filetype == pattern[4]) then
+                    if string.find(line, pattern[1]) then
+                        vim.api.nvim_buf_set_extmark(0, ns_mattern, index - 1, 0,
+                            {
+                                id = index,
+                                virt_text = { { pattern[2], pattern[3] } },
+                                virt_text_pos = Mattern.config.position,
+                                hl_mode = Mattern.config.hl_mode
+                            })
+                    end
                 end
             end
         end
