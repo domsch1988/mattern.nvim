@@ -35,7 +35,7 @@ function Mattern.mattern_print()
     local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
     for index, line in ipairs(lines) do
         for _, patterns in ipairs(Mattern.config.markers) do
-            for pattern in ipairs(patterns) do
+            for _, pattern in ipairs(patterns) do
                 if (pattern[4] == nil) or (vim.bo.filetype == pattern[4]) then
                     if string.find(line, pattern[1]) then
                         vim.api.nvim_buf_set_extmark(0, ns_mattern, index - 1, 0,
