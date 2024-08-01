@@ -9,7 +9,7 @@ local defaults = {
     markers = {
         -- Out Custom Marker Definitions
         --  | Pattern      | Text to Write   | HL Group        | Optional Filetype |
-        { 'mattern', 'A default for Testing', "@comment.error", "lua" },
+        { {'mattern'}, 'A default for Testing', "@comment.error", "lua" },
     }
 }
 
