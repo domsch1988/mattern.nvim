@@ -37,7 +37,7 @@ function Mattern.mattern_print()
         for _, markers in ipairs(Mattern.config.markers) do
             local filetype = markers[4]
             local patterns = markers[1]
-            local text = markers[2]
+            local text = " "..markers[2].." "
             local hlgroup = markers[3]
             if (filetype == nil) or (vim.bo.filetype == filetype) then
                 for _, pattern in ipairs(patterns) do
