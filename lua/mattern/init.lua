@@ -56,10 +56,7 @@ function Mattern.mattern_print()
 end
 
 function Mattern.update()
-	local namespaces = vim.api.nvim_get_namespaces()
-	for _, ns_id in pairs(namespaces) do
-		vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
-	end
+	vim.api.nvim_buf_clear_namespace(0, ns_mattern, 0, -1)
 	Mattern.mattern_print()
 end
 
